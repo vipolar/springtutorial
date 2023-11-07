@@ -1,5 +1,7 @@
-#GET http://localhost:8080/api/content/get/all
+#GET http://localhost:9191/api/content/get/all
 
-#GET http://localhost:8080/api/content/get/1
+#GET http://localhost:9191/api/content/get/1
 
-#GET http://localhost:8080/api/content/get/99
+#GET http://localhost:9191/api/content/get/99
+
+GET http://localhost:9191/api/content/get/filter/commandLineRunner

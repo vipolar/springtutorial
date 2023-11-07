@@ -1,13 +1,12 @@
-POST http://localhost:8080/api/content/add
+POST http://localhost:9191/api/content/add
 Content-Type: application/json
 
 {
-    "id": 2,
     "title": "example of 2nd title",
     "description": "example of 2nd description",
     "status": "IDEA",
     "type": "ARTICLE",
     "created": "2023-11-06",
     "updated": null,
-    "url": ""
+    "url": "xuilo"
 }

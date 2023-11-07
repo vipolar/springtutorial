@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.example.spring.tutorial.model.Content;
-import com.example.spring.tutorial.repository.ContentCollectionRepository;
+import com.example.spring.tutorial.repository.ContentRepository;
 
 import jakarta.validation.Valid;
 
@@ -24,9 +24,9 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/content")
 public class ContentController {
 
-    private final ContentCollectionRepository repository;
+    private final ContentRepository repository;
 
-    public ContentController(ContentCollectionRepository repository) {
+    public ContentController(ContentRepository repository) {
         this.repository = repository;
     }
     
@@ -64,11 +64,16 @@ public class ContentController {
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         if (!repository.existsById(id)) {
-            repository.delete(id);
+            repository.deleteById(id);
             return "Thanks For Deleting!!!";
         }
 
         return "Deleting failed!!!";
+    }
+
+    @GetMapping("/get/filter/{keyword}")
+    public List<Content> findByTitle(@PathVariable String keyword) {
+        return repository.findAllByTitleContains(keyword);
     }
 
 }
